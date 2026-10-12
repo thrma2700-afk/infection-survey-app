@@ -1,0 +1,10 @@
+# Vercel로 배포할 때 올리지 않는 것 (비밀 정보, 개발 도구, 외부 저장소, 임시 파일)
+.env*
+.bkit
+.git
+.next
+.vercel
+node_modules
+external-tools
+trash-can
+supabase/.temp

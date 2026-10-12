@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/*
+ * 디자인 기준: 국내 협업 메신저 '잔디'의 분위기(깔끔한 흰 바탕, 연한 회색·하늘색 면, 포인트 초록, 둥근 모서리)를 참고했다.
+ * 색은 여기서 한 번만 정하고, 화면은 이 이름(bg-primary, text-muted, border-border 등)만 쓴다.
+ * 글자 위에 올라가는 색은 읽기 쉬운 명암비(4.5:1 이상)를 지키도록 정했다.
+ */
+:root {
+  --background: #ffffff;
+  --foreground: #222222;
+  --surface: #fafafc; /* 화면 바탕, 표 머리글 */
+  --surface-strong: #f1f2f6;
+  --border: #e6e7ec;
+  --border-strong: #d2d5dd;
+  --muted: #666a75; /* 보조 글자 */
+
+  --accent: #00c473; /* 포인트 초록: 장식(표시 막대, 마크, 포커스 링)에만 쓴다 */
+  --primary: #00834a; /* 버튼·링크: 흰 글자와 4.5:1 이상 */
+  --primary-hover: #006b3c;
+  --primary-soft: #e7f8ef; /* 선택된 메뉴, 연한 강조 */
+  --on-primary: #ffffff;
+
+  --info-soft: #eaf6fc; /* 첫 화면 상단 등 연한 하늘색 면 */
+  --danger: #b42318;
+  --danger-soft: #fdeceb;
+  --warning: #8a5300;
+  --warning-soft: #fff4de;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #16171b;
+    --foreground: #ececf0;
+    --surface: #1c1d22;
+    --surface-strong: #25272e;
+    --border: #2e3039;
+    --border-strong: #404351;
+    --muted: #a3a7b5;
+
+    --accent: #2bd68a;
+    --primary: #2bd68a;
+    --primary-hover: #52e3a3;
+    --primary-soft: #16352a;
+    --on-primary: #06251a;
+
+    --info-soft: #172733;
+    --danger: #ff8a80;
+    --danger-soft: #3a1f1f;
+    --warning: #ffcc80;
+    --warning-soft: #3a2f17;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-soft: var(--primary-soft);
+  --color-on-primary: var(--on-primary);
+  --color-info-soft: var(--info-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --font-sans: var(--font-noto-sans-kr);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-noto-sans-kr), "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  /* 한글은 낱말 단위로 줄을 바꾸고, 아주 긴 글자(이메일 등)는 칸을 넘지 않게 한다 */
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* 키보드로 이동할 때 선택된 곳이 보이게 한다 */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
